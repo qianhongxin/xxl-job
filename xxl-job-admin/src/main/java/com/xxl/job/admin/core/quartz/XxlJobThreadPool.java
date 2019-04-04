@@ -6,6 +6,7 @@ import org.quartz.spi.ThreadPool;
 /**
  * single thread pool, for async trigger
  *
+ * 提供给quartz
  * @author xuxueli 2019-03-06
  */
 public class XxlJobThreadPool implements ThreadPool {

@@ -21,6 +21,7 @@ import java.util.Date;
 
 /**
  * xxl-job trigger
+ * xxljob的触发器操作类
  * Created by xuxueli on 17/7/13.
  */
 public class XxlJobTrigger {

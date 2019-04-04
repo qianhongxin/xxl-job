@@ -26,6 +26,7 @@ public class XxlJobInfo {
 	private String executorParam;		    // 执行器，任务参数
 	private String executorBlockStrategy;	// 阻塞处理策略
 	private int executorTimeout;     		// 任务执行超时时间，单位秒
+	// 这里的失败重试次数不会变
 	private int executorFailRetryCount;		// 失败重试次数
 	
 	private String glueType;		// GLUE类型	#com.xxl.job.core.glue.GlueTypeEnum

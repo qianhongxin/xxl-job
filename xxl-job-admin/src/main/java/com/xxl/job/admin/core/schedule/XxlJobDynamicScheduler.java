@@ -34,6 +34,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * base quartz scheduler util
+ *
+ * 基于quartz的调度工具类，相当于装饰模式，内部持有quartz的调度器scheduler
+ *
  * @author xuxueli 2015-12-19 16:13:53
  */
 public final class XxlJobDynamicScheduler {
@@ -49,9 +52,6 @@ public final class XxlJobDynamicScheduler {
 
 
     // ---------------------- init + destroy ----------------------
-    // 初始化注册job线程
-    // 初始化失败job执行线程
-    // 初始化rpc执行器
     public void start() throws Exception {
         // valid
         Assert.notNull(scheduler, "quartz scheduler is null");
@@ -72,7 +72,6 @@ public final class XxlJobDynamicScheduler {
     }
 
 
-    // 销毁相关对象，释放资源
     public void destroy() throws Exception {
         // admin trigger pool stop
         JobTriggerPoolHelper.toStop();
@@ -200,6 +199,8 @@ public final class XxlJobDynamicScheduler {
     /**
      * add trigger + job
      *
+     * 调度job
+     *
      * @param jobName
      * @param cronExpression
      * @return
@@ -240,6 +241,8 @@ public final class XxlJobDynamicScheduler {
     /**
      * remove trigger + job
      *
+     * 删除调度的job
+     *
      * @param jobName
      * @return
      * @throws SchedulerException
@@ -261,6 +264,8 @@ public final class XxlJobDynamicScheduler {
 
     /**
      * updateJobCron
+     *
+     * 更新job的cron表达式
      *
      * @param jobName
      * @param cronExpression

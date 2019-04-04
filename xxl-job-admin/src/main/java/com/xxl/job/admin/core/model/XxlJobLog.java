@@ -19,6 +19,7 @@ public class XxlJobLog {
 	private String executorHandler;
 	private String executorParam;
 	private String executorShardingParam;
+	// 这里的次数默认是0，如果jobinfo设置了重试次数，在调用执行时这里会被赋值jobinfo的executorFailRetryCount。每次重试一次，这里的次数就会减一
 	private int executorFailRetryCount;
 	
 	// trigger info

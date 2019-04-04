@@ -22,6 +22,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * job monitor instance
  *
+ * job 失败监控线程，根据指定的策略进行失败重试或发送告警邮件
+ *
  * @author xuxueli 2015-9-1 18:05:56
  */
 public class JobFailMonitorHelper {
@@ -58,7 +60,7 @@ public class JobFailMonitorHelper {
 								XxlJobLog log = XxlJobAdminConfig.getAdminConfig().getXxlJobLogDao().load(failLogId);
 								XxlJobInfo info = XxlJobAdminConfig.getAdminConfig().getXxlJobInfoDao().loadById(log.getJobId());
 
-								// 1、fail retry monitor
+								// 1、fail retry monitor 失败重试，只要log.getExecutorFailRetryCount()大于0就会执行
 								if (log.getExecutorFailRetryCount() > 0) {
 									JobTriggerPoolHelper.trigger(log.getJobId(), TriggerTypeEnum.RETRY, (log.getExecutorFailRetryCount()-1), log.getExecutorShardingParam(), null);
 									String retryMsg = "<br><br><span style=\"color:#F39C12;\" > >>>>>>>>>>>"+ I18nUtil.getString("jobconf_trigger_type_retry") +"<<<<<<<<<<< </span><br>";
@@ -66,7 +68,7 @@ public class JobFailMonitorHelper {
 									XxlJobAdminConfig.getAdminConfig().getXxlJobLogDao().updateTriggerInfo(log);
 								}
 
-								// 2、fail alarm monitor
+								// 2、fail alarm monitor 失败告警
 								int newAlarmStatus = 0;		// 告警状态：0-默认、-1=锁定状态、1-无需告警、2-告警成功、3-告警失败
 								if (info!=null && info.getAlarmEmail()!=null && info.getAlarmEmail().trim().length()>0) {
 									boolean alarmResult = true;
@@ -173,6 +175,8 @@ public class JobFailMonitorHelper {
 			for (String email: emailSet) {
 
 				// make mail
+				// 邮件服务可以发送任何格式邮件，各家邮件系统都根据标准协议，数据格式实现的。
+				// 公司内部提供了邮件服务，用http协议和各个业务线对接，对这个邮件服务做了高可用，可靠，还减少了各个系统自己对接的复杂性
 				try {
 					MimeMessage mimeMessage = XxlJobAdminConfig.getAdminConfig().getMailSender().createMimeMessage();
 

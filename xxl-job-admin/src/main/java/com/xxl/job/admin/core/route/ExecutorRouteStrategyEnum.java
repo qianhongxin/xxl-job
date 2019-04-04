@@ -5,6 +5,8 @@ import com.xxl.job.admin.core.util.I18nUtil;
 
 /**
  * Created by xuxueli on 17/3/10.
+ *
+ * 调度策略类型
  */
 // 路由策略，有 第一个，最后一个，轮训等
 public enum ExecutorRouteStrategyEnum {
