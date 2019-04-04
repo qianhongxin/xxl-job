@@ -1,0 +1,8 @@
+1. 调度中心xxl-job-admin和执行器executor之间的通信协议用的xxl-rpc通信，执行器的载体可以是普通java程序，
+jfinal的web应用，springboot的web应用，普通的spring应用，nutz应用等
+
+2. xxl-jb-core模块是公共依赖代码
+
+3. xxl-job-admin是调度中心，管理中心
+
+4. xxl-job有好几个后台线程处理事情，比如失败重试线程，注册任务线程等

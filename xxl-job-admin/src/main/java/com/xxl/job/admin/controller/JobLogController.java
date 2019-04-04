@@ -31,6 +31,8 @@ import java.util.Map;
 /**
  * index controller
  * @author xuxueli 2015-12-19 16:13:16
+ *
+ * job日志的控制器
  */
 @Controller
 @RequestMapping("/joblog")

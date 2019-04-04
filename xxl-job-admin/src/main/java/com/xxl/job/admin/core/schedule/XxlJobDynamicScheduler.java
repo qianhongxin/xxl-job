@@ -49,6 +49,9 @@ public final class XxlJobDynamicScheduler {
 
 
     // ---------------------- init + destroy ----------------------
+    // 初始化注册job线程
+    // 初始化失败job执行线程
+    // 初始化rpc执行器
     public void start() throws Exception {
         // valid
         Assert.notNull(scheduler, "quartz scheduler is null");
@@ -69,6 +72,7 @@ public final class XxlJobDynamicScheduler {
     }
 
 
+    // 销毁相关对象，释放资源
     public void destroy() throws Exception {
         // admin trigger pool stop
         JobTriggerPoolHelper.toStop();

@@ -89,6 +89,7 @@ public class JobRegistryMonitorHelper {
 				logger.info(">>>>>>>>>>> xxl-job, job registry monitor thread stop");
 			}
 		});
+		// 设置成后台线程
 		registryThread.setDaemon(true);
 		registryThread.setName("xxl-job, admin JobRegistryMonitorHelper");
 		registryThread.start();

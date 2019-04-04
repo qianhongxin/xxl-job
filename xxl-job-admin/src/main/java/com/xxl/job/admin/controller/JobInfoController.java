@@ -22,6 +22,7 @@ import java.util.Map;
 
 /**
  * index controller
+ * job 相关curd
  * @author xuxueli 2015-12-19 16:13:16
  */
 @Controller

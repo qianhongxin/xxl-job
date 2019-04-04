@@ -11,6 +11,8 @@ import javax.sql.DataSource;
 
 /**
  * @author xuxueli 2018-10-28 00:18:17
+ *
+ * 跟job相关的调度线程
  */
 @Configuration
 public class XxlJobDynamicSchedulerConfig {
@@ -29,6 +31,7 @@ public class XxlJobDynamicSchedulerConfig {
         return schedulerFactory;
     }
 
+    // 初始化XxlJobDynamicScheduler对象后，调用start方法
     @Bean(initMethod = "start", destroyMethod = "destroy")
     public XxlJobDynamicScheduler getXxlJobDynamicScheduler(SchedulerFactoryBean schedulerFactory){
 

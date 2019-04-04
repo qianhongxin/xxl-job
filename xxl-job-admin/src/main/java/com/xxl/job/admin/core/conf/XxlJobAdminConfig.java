@@ -17,7 +17,7 @@ import javax.annotation.Resource;
  *
  * @author xuxueli 2017-04-28
  */
-// 借用InitializingBean实现bean的初始化
+// 借用InitializingBean实现bean的初始化, 获取admin的配置数据
 @Configuration
 public class XxlJobAdminConfig implements InitializingBean{
     private static XxlJobAdminConfig adminConfig = null;
