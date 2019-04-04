@@ -9,6 +9,8 @@ import java.util.List;
 
 /**
  * Created by xuxueli on 17/3/10.
+ *
+ * 调度器调度策略，第一个。。。
  */
 public abstract class ExecutorRouter {
     protected static Logger logger = LoggerFactory.getLogger(ExecutorRouter.class);

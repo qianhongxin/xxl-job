@@ -16,6 +16,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * job registry instance
+ *
+ * job 注册线程
  * @author xuxueli 2016-10-02 19:10:24
  */
 public class JobRegistryMonitorHelper {

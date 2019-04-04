@@ -5,6 +5,7 @@ import com.xxl.job.admin.core.util.I18nUtil;
 /**
  * trigger type enum
  *
+ * 触发器类型
  * @author xuxueli 2018-09-16 04:56:41
  */
 public enum TriggerTypeEnum {

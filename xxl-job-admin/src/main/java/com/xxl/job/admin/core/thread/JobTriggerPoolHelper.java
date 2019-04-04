@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * job trigger thread pool helper
+ * job 触发执行的助手工具类
  *
  * @author xuxueli 2018-07-03 21:08:07
  */
