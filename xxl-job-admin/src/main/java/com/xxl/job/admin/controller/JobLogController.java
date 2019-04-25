@@ -155,6 +155,7 @@ public class JobLogController {
 		ReturnT<String> runResult = null;
 		try {
 			ExecutorBiz executorBiz = XxlJobDynamicScheduler.getExecutorBiz(log.getExecutorAddress());
+			// 停止执行器上的job
 			runResult = executorBiz.kill(jobInfo.getId());
 		} catch (Exception e) {
 			logger.error(e.getMessage(), e);

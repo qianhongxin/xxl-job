@@ -141,6 +141,7 @@ public final class XxlJobDynamicScheduler {
         }
 
         // set-cache
+        // 生成代理对象
         executorBiz = (ExecutorBiz) new XxlRpcReferenceBean(
                 NetEnum.NETTY_HTTP,
                 Serializer.SerializeEnum.HESSIAN.getSerializer(),

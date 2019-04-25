@@ -57,37 +57,43 @@ public class JobInfoController {
 		
 		return xxlJobService.pageList(start, length, jobGroup, jobDesc, executorHandler, filterTime);
 	}
-	
+
+	// 添加任务信息
 	@RequestMapping("/add")
 	@ResponseBody
 	public ReturnT<String> add(XxlJobInfo jobInfo) {
 		return xxlJobService.add(jobInfo);
 	}
-	
+
+	// 更新任务信息
 	@RequestMapping("/update")
 	@ResponseBody
 	public ReturnT<String> update(XxlJobInfo jobInfo) {
 		return xxlJobService.update(jobInfo);
 	}
-	
+
+	// 删除任务
 	@RequestMapping("/remove")
 	@ResponseBody
 	public ReturnT<String> remove(int id) {
 		return xxlJobService.remove(id);
 	}
-	
+
+	// 停止执行任务调度
 	@RequestMapping("/stop")
 	@ResponseBody
 	public ReturnT<String> pause(int id) {
 		return xxlJobService.stop(id);
 	}
-	
+
+	// 开始执行任务调度
 	@RequestMapping("/start")
 	@ResponseBody
 	public ReturnT<String> start(int id) {
 		return xxlJobService.start(id);
 	}
-	
+
+	// 手动触发任务调度一次
 	@RequestMapping("/trigger")
 	@ResponseBody
 	//@PermessionLimit(limit = false)

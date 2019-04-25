@@ -11,7 +11,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * job trigger thread pool helper
- * job 触发执行的助手工具类
+ * job 触发执行的助手工具类， 快慢线程池
+ * 慢的job加入慢线程池。快的任务放入快线程池。这样能最大程度提高吞吐量。如果一个线程池，这样容易堵塞
  *
  * @author xuxueli 2018-07-03 21:08:07
  */
@@ -62,6 +63,7 @@ public class JobTriggerPoolHelper {
         // choose thread pool
         ThreadPoolExecutor triggerPool_ = fastTriggerPool;
         AtomicInteger jobTimeoutCount = jobTimeoutCountMap.get(jobId);
+        // 一分钟内超时 10 次就将job加入 slowTriggerPool 中，避免阻塞
         if (jobTimeoutCount!=null && jobTimeoutCount.get() > 10) {      // job-timeout 10 times in 1 min
             triggerPool_ = slowTriggerPool;
         }

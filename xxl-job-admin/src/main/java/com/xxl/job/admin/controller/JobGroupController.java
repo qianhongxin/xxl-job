@@ -23,6 +23,8 @@ import java.util.List;
 /**
  * job group controller
  * @author xuxueli 2016-10-02 20:52:56
+ *
+ * 任务组的curd
  */
 @Controller
 @RequestMapping("/jobgroup")
